@@ -64,7 +64,7 @@ const ProductScreen = ({match}) => {
 
                           <Col>Price:</Col>
                           <Col>
-                          <h4>₪ {product.price}</h4>
+                          <h4>₪{product.price}</h4>
                             </Col>
 
                     </Row>
