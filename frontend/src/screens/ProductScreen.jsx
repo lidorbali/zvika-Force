@@ -106,7 +106,7 @@ import{listProductsDetails} from '../actions/productsActions';
                                           >
                                             {/* qty depents th stock */}
                                             { 
-                                              [...Array(product.countInStock).keys()].map((x)=>(
+                                              [...Array(product.countInStock % 50).keys()].map((x)=>(
                                                 <option key={x+1} value={x+1}>
                                                   {x +1 }
                                                 </option>
