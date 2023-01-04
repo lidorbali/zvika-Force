@@ -19,7 +19,7 @@ const CartScreen = () => {
   const product_id = params.id;
   const navigate = useNavigate();
   const Location = useLocation();
-  const qty = Location.search ? Number(Location.search.split("=")[1]) : 1;
+  const qty = Location.search ?  Number(Location.search.split("=")[1]) : 1;
   // console.log('qty:', qty)
   // console.log('product_id:', product_id)
 
