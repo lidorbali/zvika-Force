@@ -9,17 +9,18 @@ export const cartReducer = (state = {cartItems:[]},action) => {
            
 
         // if product is in cart replace with new item
+        // product= the id of the product
         if(existItem){
           return{
             ...state,
-            cartitems: state.cartItems.map(x=>
+            cartItems: state.cartItems.map(x=>
               x.product === existItem.product ? item : x)
           }
           // add item to cart
         }else{
           return{
             ...state,
-            cartitems:[...state.cartitems, item]
+            cartItems:[...state.cartItems, item]
           }
         }
 
