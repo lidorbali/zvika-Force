@@ -44,7 +44,7 @@ import{listProductsDetails} from '../actions/productsActions';
               :(
                 <Row>
                         <Col md={6}>
-                          <Image width={400} src={product.image} alt={product.name} fluid />
+                          <Image style={{ width: 450, height: 680 }} src={product.image} alt={product.name} fluid />
                         </Col>
                         <Col md={3}>
                           <ListGroup variant="flush">
