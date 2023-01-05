@@ -9,7 +9,7 @@ from django.contrib.auth.models import update_last_login, User
 from django.contrib.auth.hashers import make_password
 from rest_framework import status
 from base.models import  User
-from base.serializers import ProductSerializer, UserSerializer, UserSerializerWithToken
+from base.serializers import  UserSerializer, UserSerializerWithToken
 from rest_framework_simplejwt.tokens import RefreshToken,api_settings
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -18,12 +18,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
 
-        # refresh = self.get_token(self.user)
-        # data["refresh"] = str(refresh)
-        # data["access"] = str(refresh.access_token)
-        # data["username"] =self.user.username
-        # data["email"] = self.user.email
-        # reaplace
+        
         serializer = UserSerializerWithToken(self.user).data
         for key, value in serializer.items():
             data[key] = value
