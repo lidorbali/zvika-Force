@@ -32,7 +32,7 @@ export const listProductsDetails =(id) => async (dispatch) => {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
         // Take data from django
-        const {data} = await axios.get(`/api/product/${id}`)
+        const {data} = await axios.get(`/api/products/${id}`)
 
         dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data })
 
