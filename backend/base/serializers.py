@@ -38,8 +38,9 @@ class UserSerializerWithToken(UserSerializer):
     return str(token.access_token)
 
   class Meta:
+    #   'email'
     model= User
-    fields = ['id', '_id', 'username', 'email', 'name', 'isAdmin','token']
+    fields = ['id', '_id','name','email', 'username', 'isAdmin','token']
 
 
 class ProductSerializer(serializers.ModelSerializer):

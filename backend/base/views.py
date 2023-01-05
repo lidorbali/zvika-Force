@@ -7,9 +7,9 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 # from .Products import products
 from django.conf import settings
-from django.contrib.auth.models import update_last_login,User
-
-
+from django.contrib.auth.models import update_last_login, User
+from django.contrib.auth.hashers import make_password
+from rest_framework import status
 from .models import Product, User
 from .serializers import ProductSerializer, UserSerializer, UserSerializerWithToken
 from rest_framework_simplejwt.tokens import RefreshToken, api_settings
@@ -42,39 +42,37 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
-# routes
 
+@api_view(['POST'])
+def RegisterUser(request):
+    data = request.data
+    print('DATA',data)
+   
+    try:
+        user = User.objects.create(
+                first_name=data['name'],
+                username=data['email'],
+                email=data['email'],
+                password=make_password(data['password'])
+            )
 
-@api_view(['GET'])
-def GetRoutes(request):
-    routes = [
-        '/users/login/',
-        'users/refresh/'
-        'api/products/',
-        '/api/products/create/',
-        '/api/products/upload/',
-        '/api/products/<id>/reviews/',
-        '/api/products/top/',
-        '/api/products/<id>/',
-        '/api/products/delete/<id>/',
-        '/api/products/<update>/<id>/',
-
-
-    ]
-
-    return Response(routes)
-
-# get specific  user from the token  becuse function  is decorated
+        serializer = UserSerializerWithToken(user, many=False)
+        return Response(serializer.data)
+    except:   
+        message = {'detail': 'User with this email already exists'}
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-# the user is connect now
+# get the user is connect now
 def GetUserProfile(requset):
     user = requset.user
     serializer = UserSerializer(user, many=False)
 
     return Response(serializer.data)
+
+# get all ussers that exist
 
 
 @api_view(['GET'])
@@ -91,7 +89,7 @@ def GetProducts(requset):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
-
+    
 
 # get products by id
 @api_view(['GET'])
