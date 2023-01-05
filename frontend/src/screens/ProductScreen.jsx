@@ -89,6 +89,7 @@ import{listProductsDetails} from '../actions/productsActions';
 
                                           <Col>Status:</Col>
                                           <Col>
+                                          {/* in stok or not depents the "countInStock" */}
                                             {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
                                             </Col>
 
