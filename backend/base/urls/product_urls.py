@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
 
 
-    path('/',views.GetProducts ,name='products'),
-    path('/<str:pk>/',views.GetProductById ,name='product')
+    path('',views.GetProducts ,name='products'),
+    path('<str:pk>/',views.GetProductById ,name='product')
 
 ]
