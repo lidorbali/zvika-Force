@@ -7,6 +7,8 @@ import Message from "../components/Message";
 import FormContainer from "../components/FormContainer";
 import { login } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
+import { userLoginReducer } from "../reducers/userReducers";
+
 
  
 const LoginScreen = () => {
@@ -66,7 +68,7 @@ const LoginScreen = () => {
 
       <Row className="py-3">
         <Col>
-          New Customer?{" "}
+          New Customer?
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
             Register
           </Link>

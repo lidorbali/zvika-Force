@@ -13,7 +13,7 @@ from base.serializers import  UserSerializer, UserSerializerWithToken
 from rest_framework_simplejwt.tokens import RefreshToken,api_settings
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    token_class = RefreshToken
+    # token_class = RefreshToken
 
     def validate(self, attrs):
         data = super().validate(attrs)
