@@ -30,7 +30,6 @@ const RegisterScreen = () => {
 
   const userRegister = useSelector(state => state.userRegister)
   const { error, loading, userInfo } = userRegisterReducer
-  
 
   useEffect(() => {
     if (userInfo) {

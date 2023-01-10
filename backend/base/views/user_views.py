@@ -11,6 +11,8 @@ from rest_framework import status
 from base.models import  User
 from base.serializers import  UserSerializer, UserSerializerWithToken
 from rest_framework_simplejwt.tokens import RefreshToken,api_settings
+from rest_framework import status
+
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     # token_class = RefreshToken
@@ -23,8 +25,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         for key, value in serializer.items():
             data[key] = value
 
-            if api_settings.UPDATE_LAST_LOGIN:
-                update_last_login(None, self.user)
+          
 
         return data
 
