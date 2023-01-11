@@ -6,6 +6,8 @@ import Message from '../components/Message'
 import CheckOutSteps from '../components/CheckOutSteps'
 import { Link } from 'react-router-dom';
 import {creatOrder}from '../actions/orderActions'
+import {ORDER_CREATE_RESET}from '../constants/orderConstans'
+
 
 
 const PlaceOrderScreen = () => {
@@ -33,6 +35,7 @@ const PlaceOrderScreen = () => {
   useEffect(( ) => {
     if (success){
       navigate(`/orders/${order._id}`)
+      dispatch({type:ORDER_CREATE_RESET})
     }
 
   
@@ -85,7 +88,7 @@ const PlaceOrderScreen = () => {
                   {cart.cartItems.map((item, index)=>(
                     <ListGroup.Item key={index}>
                       <Row>
-                        <Col md={2}>
+                        <Col md={1}>
                         <Image   src={item.image} alt={item.name} fluid rounded></Image>
                         </Col>  
                         <Col>
