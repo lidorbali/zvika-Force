@@ -12,13 +12,12 @@ import RegisterScreen from "./screens/RegisterScreen";
 
 
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
       <Header />
-      <main className="py-3">
+      <main className="py-3" >
         <Container>
           <Routes>
             <Route path="/" exact element={<HomeScreen />} />

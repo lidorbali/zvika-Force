@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from django.conf import settings
-from django.contrib.auth.models import update_last_login, User
+from django.contrib.auth.models import  User
 from django.contrib.auth.hashers import make_password
 from rest_framework import status
 from base.models import  User
