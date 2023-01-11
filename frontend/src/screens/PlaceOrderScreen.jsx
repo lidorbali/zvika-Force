@@ -1,13 +1,20 @@
 import React ,{useState ,useEffect} from 'react'
 import {  Row,Col ,Button, ListGroup, Image,Card} from "react-bootstrap";
 import {useDispatch, useSelector} from 'react-redux'
-import { useLocation, useNavigate,  } from 'react-router-dom';
+import { useNavigate,  } from 'react-router-dom';
 import Message from '../components/Message'
 import CheckOutSteps from '../components/CheckOutSteps'
 import { Link } from 'react-router-dom';
+import {creatOrder}from '../actions/orderActions'
 
 
 const PlaceOrderScreen = () => {
+  const orderCreate=useSelector(state=> state.orderCreate)
+  const{order,error,success}= orderCreate
+ 
+ 
+  const dispatch=useDispatch()
+  const navigate = useNavigate()
   const cart=useSelector(state => state.cart)
   
   //objects only for this page not from state
@@ -17,8 +24,32 @@ const PlaceOrderScreen = () => {
   cart.taxPrice = Number((0.17) * cart.itemsPrice).toFixed(2)
   cart.totalPrice = (Number(cart.itemsPrice) +Number(cart.shippingPrice))
   
+  if(!cart.paymentMethod  ){
+    navigate(`/payment`)
+
+  }
+
+
+  useEffect(( ) => {
+    if (success){
+      navigate(`/orders/${order._id}`)
+    }
+
+  
+  }, [navigate, success])
+  
+
   const placeOrder = ()=>{
-    console.log('Place order')
+    dispatch(creatOrder({
+      orderItems: cart.cartItems,
+      shippingAddress:cart.shippingAddress,
+      paymentMethod: cart.paymentMethod,
+      itemsPrice: cart.itemsPrice,
+      shippingPrice: cart.shippingPrice,
+      taxPrice: cart.taxPrice,
+      totalPrice: cart.totalPrice,
+
+    }))
   }
   return (
     <div>
@@ -107,6 +138,9 @@ const PlaceOrderScreen = () => {
                             <Col >Total:</Col>  
                             <Col>₪{cart.totalPrice}</Col>
                           </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        {error && <Message variant='danger'> {error}</Message>}
                       </ListGroup.Item>
                       
                       <ListGroup.Item>

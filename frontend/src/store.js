@@ -1,9 +1,9 @@
-import{configureStore ,combineReducers  } from '@reduxjs/toolkit'
+import{configureStore ,combineReducers, ThunkMiddleware  } from '@reduxjs/toolkit'
 import thunk from  'redux-thunk'
 import { productDetailsSReducer,productListsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
-import { userLoginReducer } from "./reducers/userReducers";
-import { userRegisterReducer } from "./reducers/userReducers";
+import { userLoginReducer ,userRegisterReducer } from "./reducers/userReducers";
+import {orderCreateReducer  } from "./reducers/orderReducers";
 
 
 
@@ -13,6 +13,7 @@ const reducer = combineReducers({
     cart : cartReducer , 
     userRegister: userRegisterReducer,
     userLogin: userLoginReducer,
+    orderCreate:orderCreateReducer
 })
 const userInfoFromStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
@@ -28,10 +29,10 @@ const ShippingAddressFromStorage= localStorage.getItem('shippingAddress')?
     : {}
 
 export const initialState= {
-    cart:{cartItems:cartItemsFromStorage,
-    shippingAddress:ShippingAddressFromStorage },  
+    cart:{
+        cartItems:cartItemsFromStorage,
+        shippingAddress:ShippingAddressFromStorage },  
     userLogin: { userInfo: userInfoFromStorage },
-    userRegister: { userInfo: userInfoFromStorage} 
 };
 
 const middleware=[thunk]
