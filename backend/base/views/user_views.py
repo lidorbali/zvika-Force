@@ -10,7 +10,6 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import status
 from base.models import  User
 from base.serializers import  UserSerializer, UserSerializerWithToken
-from rest_framework_simplejwt.tokens import RefreshToken,api_settings
 from rest_framework import status
 
 

@@ -13,12 +13,7 @@ import {
 
 } from "../constants/userConstants";
 
-export const registerError= (error) =>{
-     return {
-    type: USER_REGISTER_FAIL,
-    error: error
-    }
-   }
+
 
 export const login = (email, password) => async (dispatch) => {
     
@@ -50,7 +45,7 @@ export const login = (email, password) => async (dispatch) => {
   } catch (error) {
       dispatch({
           type: USER_LOGIN_FAIL,
-          error: error.response && error.response.data.detail
+          payload: error.response && error.response.data.detail
               ? error.response.data.detail
               : error.message,
       })
@@ -87,6 +82,7 @@ export const register = (first_name, email, password) => async (dispatch) => {
         dispatch({
             type: USER_REGISTER_SUCCESS,
             payload: data
+            
         })
 
         dispatch({

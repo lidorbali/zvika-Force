@@ -12,8 +12,7 @@ const PaymentScreen = () => {
     const cart =useSelector(state=> state.cart)
     const {shippingAddress} = cart
     const dispatch =useDispatch()
-    const location = useLocation()
-    const [step, setStep] = useState(1)
+  
     
 
     const[paymentMethod,setPaymentMethod] =useState('PayPal')
