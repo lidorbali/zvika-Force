@@ -31,7 +31,7 @@ const OrderScreen = () => {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [order, orderId]);
+  }, [order, orderId,]);
 
   return loading ? (
     <Loader/>
@@ -56,6 +56,13 @@ const OrderScreen = () => {
               {"  "}
               {order.shippingAddress.country}
             </p>
+
+            {order.isDeliverd ? (
+                <Message variant='success'>Delivered on {order.deliverdAt}</Message>
+            ) : (
+                <Message variant='warning'>Not Delivered</Message>
+            ) }
+
           </ListGroup>
 
           <ListGroup variant="flush">
@@ -64,6 +71,14 @@ const OrderScreen = () => {
               <strong> Method : </strong>
               {order.paymentMethod}
             </p>
+
+            {order.isPaid ? (
+                <Message variant='success'>Paid on {order.paidAt}</Message>
+            ) : (
+                <Message variant='warning'>Not paid</Message>
+            ) }
+
+
           </ListGroup>
 
           <ListGroup variant="flush">

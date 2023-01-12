@@ -1,9 +1,11 @@
-import{configureStore ,combineReducers,   } from '@reduxjs/toolkit'
+import{configureStore ,combineReducers, applyMiddleware   } from '@reduxjs/toolkit'
 import thunk from  'redux-thunk'
 import { productDetailsSReducer,productListsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import { userLoginReducer ,userRegisterReducer } from "./reducers/userReducers";
 import {orderCreateReducer ,orderDetailsReducer } from "./reducers/orderReducers";
+import { composeWithDevTools } from 'redux-devtools-extension'
+
 
 
 
@@ -39,9 +41,10 @@ export const initialState= {
 const middleware=[thunk]
 
 const store=configureStore({
-    reducer:reducer,initialState,
-    middleware: middleware,});
-
+    reducer:reducer,
+    preloadedState:initialState,
+    middleware:middleware
+})
 
 
 

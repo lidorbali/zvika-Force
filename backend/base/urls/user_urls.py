@@ -9,7 +9,7 @@ urlpatterns = [
     path('login/', views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('register/' ,views.RegisterUser , name='register'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('profile/',views.GetUserProfile ,name='_profile'),
+    path('profile/',views.GetUserProfile ,name='users-profile'),
     path('',views.GetUsers ,name='users'),
 
     

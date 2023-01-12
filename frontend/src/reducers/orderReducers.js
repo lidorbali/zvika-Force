@@ -12,11 +12,11 @@ import {
 export const orderCreateReducer = (state = {}, action) => {
     switch (action.type) {
         case ORDER_CREATE_REQUEST:
-            return {
+            return {...state,
                 loading: true,
         }
     case ORDER_CREATE_SUCCESS:
-      return { 
+      return {
         loading: false,
         success: true,
         order: action.payload,
@@ -46,6 +46,7 @@ export const orderDetailsReducer = (state = {loading:true, orderItems:[],shippin
       }
   case ORDER_DETAILS_SUCCESS:
     return { 
+      ...state,
       loading: false,
       order: action.payload,
     }
