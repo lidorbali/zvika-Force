@@ -38,8 +38,7 @@ export const initialState= {
 const middleware=[thunk]
 
 const store=configureStore({
-    reducer:reducer,
-    preloadedState: initialState,
+    reducer:reducer,initialState,
     middleware: middleware,});
 
 

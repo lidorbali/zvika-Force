@@ -16,9 +16,9 @@ const PlaceOrderScreen = () => {
  
  
   const dispatch=useDispatch()
+
   const navigate = useNavigate()
   const cart=useSelector(state => state.cart)
-  
   //objects only for this page not from state
   cart.itemsPrice = cart.cartItems.reduce((acc,item)=> acc + item.price *item.qty , 0 ).toFixed(2)
   // The shipping price depends on the total price of the items
@@ -32,13 +32,14 @@ const PlaceOrderScreen = () => {
   }
 
 
-  useEffect(( ) => {
+  useEffect( ( ) => {
     if (success){
       navigate(`/orders/${order._id}`)
       dispatch({type:ORDER_CREATE_RESET})
     }
 
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate, success])
   
 
