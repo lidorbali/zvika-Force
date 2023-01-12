@@ -34,7 +34,7 @@ const PlaceOrderScreen = () => {
 
   useEffect( ( ) => {
     if (success){
-      navigate(`/orders/${order._id}`)
+      navigate(`/order/${order._id}`)
       dispatch({type:ORDER_CREATE_RESET})
     }
 
@@ -62,6 +62,7 @@ const PlaceOrderScreen = () => {
         <Col md={8}>
             <ListGroup variant='flush'>
                 <h2> Shipping</h2>
+                
                 <p>
                     <strong> Shipping : </strong>
                     {cart.shippingAddress.address},{cart.shippingAddress.city}
