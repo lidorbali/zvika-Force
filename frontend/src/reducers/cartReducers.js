@@ -38,7 +38,7 @@ export const cartReducer = (state = {cartItems:[], shippingAddress: {} },action)
         return{
          ...state,
           shippingAddress: action.payload,
-          cartItems: state.cartItems
+       
 
         };
 
