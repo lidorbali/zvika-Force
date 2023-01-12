@@ -8,7 +8,6 @@ import FormContainer from "../components/FormContainer";
 import { register } from "../actions/userActions";
 
 import { useNavigate } from "react-router-dom";
-import { userRegisterReducer } from "../reducers/userReducers";
 
 
 

@@ -26,13 +26,11 @@ export const listProducts =() => async (dispatch) => {
                  })
     }
 }
-export const listProductsDetails =(id) => async (dispatch,getState) => {
+export const listProductsDetails =(id) => async (dispatch) => {
      
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
-        const {
-            cart: { userInfo },
-        } = getState()
+        
         // Take data from django
         const {data} = await axios.get(`/api/products/${id}`)
 

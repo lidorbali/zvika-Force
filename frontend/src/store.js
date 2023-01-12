@@ -1,4 +1,4 @@
-import{configureStore ,combineReducers, ThunkMiddleware  } from '@reduxjs/toolkit'
+import{configureStore ,combineReducers,   } from '@reduxjs/toolkit'
 import thunk from  'redux-thunk'
 import { productDetailsSReducer,productListsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'

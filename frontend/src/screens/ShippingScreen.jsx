@@ -1,7 +1,7 @@
-import React ,{useState ,useEffect} from 'react'
+import React ,{useState ,} from 'react'
 import {  Button,   Form} from "react-bootstrap";
 import {useDispatch, useSelector} from 'react-redux'
-import { useLocation, useNavigate,  } from 'react-router-dom';
+import { useNavigate,  } from 'react-router-dom';
 import FormContainer from '../components/FormContainer'
 import CheckOutSteps from '../components/CheckOutSteps'
 
