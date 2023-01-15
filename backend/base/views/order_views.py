@@ -6,7 +6,7 @@ from base.models import Product ,Order,OrderItem,ShippingAddress
 from django.contrib.auth.models import  User 
 from django.contrib.auth.hashers import make_password
 from base.serializers import  OrderSerializer
-
+from datetime import datetime
 from rest_framework import status
 
 @api_view(['POST'])
@@ -74,3 +74,13 @@ def GetOrderById(requset,pk):
     
     
     return
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def UpdateOrderToPaid(request,pk):
+    order= Order.objects.get(_id=pk)
+    
+    order.isPaid=True
+    order.paidAt=datetime.now()
+    order.save()
+    Response('Order was paid')
+    
