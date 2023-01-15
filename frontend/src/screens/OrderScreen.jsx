@@ -31,7 +31,7 @@ const OrderScreen = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  }, [order, orderId,]);
+  }, [dispatch,order, orderId,]);
 
   return loading ? (
     <Loader/>
