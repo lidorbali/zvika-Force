@@ -33,9 +33,11 @@ const OrderScreen = () => {
   }
   // paypay Id:  (remember to delet) AbTcuNBng9CEIberbPhUrl6rBQvlftMhZJFvxlXqGyc7kx2PNiafn9m5UkvXh6cHVz6l9EoYOdfIE4Xp
     const  addPayPalScript = () =>{
-      const script = document.createElement('script')
+      const script = document.createElement('script',
+        
+      )
       script.type= 'text/javascript'
-      script.src= "https://www.paypal.com/sdk/js?client-id=AbTcuNBng9CEIberbPhUrl6rBQvlftMhZJFvxlXqGyc7kx2PNiafn9m5UkvXh6cHVz6l9EoYOdfIE4Xp&buyer-country=US"
+      script.src= 'https://www.paypal.com/sdk/js?client-id=AREpueneaVibNCv-A8x5CmQva3u7DSOR56Q4dnMolsYJ9nslOV4mpfNXkIt9YzAZ3enboQk2ZCfvMye-&buyer-country=IL&currency=ILS'
       script.async =true
       script.onload=()=>{
         setSdkReady(true)
@@ -61,8 +63,8 @@ const OrderScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
   }, [dispatch,order, orderId,successPay]);
-  const successPaymentHandler =(paymenResult)=> {
-    dispatch(payOrder(orderId,paymenResult,refresh()))
+  const successPaymentHandler =(paymentResult)=> {
+    dispatch(payOrder(orderId,paymentResult,refresh()))
 
 
   }
@@ -184,7 +186,7 @@ const OrderScreen = () => {
                   {loadingPay && <Loader />}
                   {!sdkReady? (<Loader />
                   ):(
-                    <PayPalButton  amount={order.totalPrice} onSuccess={successPaymentHandler}/>
+                    <PayPalButton currency='ILS' amount={order.totalPrice} onSuccess={successPaymentHandler}/>
                   )}
 
                 </ListGroup.Item>
