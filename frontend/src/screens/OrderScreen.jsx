@@ -29,8 +29,8 @@ const OrderScreen = () => {
     if (!order || order._id !== Number(orderId)) {
       dispatch(getOrderDetails(orderId));
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [order, orderId,]);
 
   return loading ? (
