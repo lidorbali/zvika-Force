@@ -73,7 +73,7 @@ def GetOrderById(requset,pk):
         return Response({'detail':'order does not exist'} ,status=status.HTTP_400_BAD_REQUEST)   
     
     
-    return
+   
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def UpdateOrderToPaid(request,pk):
@@ -82,5 +82,5 @@ def UpdateOrderToPaid(request,pk):
     order.isPaid=True
     order.paidAt=datetime.now()
     order.save()
-    Response('Order was paid')
+    return  Response('Order was paid')
     
