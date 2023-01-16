@@ -71,3 +71,18 @@ def GetUsers(requset):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def UpdateUserProfile(requset):
+    user = requset.user
+    serializer = UserSerializerWithToken(user, many=False)
+    data = requset.data
+    user.first_name = data['name']
+    user.username = data['email']
+    user.email = data['email']
+    
+    if data['password'] != '':
+        user.password = make_password(data['password'])
+    user.save()
+    return Response(serializer.data)

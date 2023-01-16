@@ -10,6 +10,8 @@ urlpatterns = [
     path('register/' ,views.RegisterUser , name='register'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('profile/',views.GetUserProfile ,name='users-profile'),
+    path('profile/update/',views.UpdateUserProfile ,name='users-profile-update'),
+
     path('',views.GetUsers ,name='users'),
 
     
