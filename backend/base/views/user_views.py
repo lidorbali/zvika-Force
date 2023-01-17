@@ -72,6 +72,8 @@ def GetUsers(requset):
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
 
+
+
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def UpdateUserProfile(requset):

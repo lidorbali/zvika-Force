@@ -41,7 +41,7 @@ const LoginScreen = () => {
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label >Email Address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter Email"
@@ -53,6 +53,7 @@ const LoginScreen = () => {
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
+           autoComplete="on"
             type="password"
             placeholder="Enter Password"
             value={password}

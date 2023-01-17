@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,Navigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
@@ -101,20 +101,20 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>set new Password</Form.Label>
             <Form.Control
-
-              type="password"
-              placeholder="Enter Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+                autoComplete="off"
+                type="password"
+                placeholder="new-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
 
           <Form.Group controlId="confirmPassword">
             <Form.Label>confirm your Password</Form.Label>
             <Form.Control
-
+              autoComplete="off"  
               type="password"
               placeholder="confirm your Password"
               value={confirmPassword}
