@@ -87,6 +87,7 @@ const RegisterScreen = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             required
+            autoComplete="off"
             type="password"
             placeholder="Enter Password"
             value={password}
@@ -98,6 +99,7 @@ const RegisterScreen = () => {
           <Form.Label>confirm your Password</Form.Label>
           <Form.Control
             required
+            autoComplete="off"
             type="password"
             placeholder="confirm your Password"
             value={confirmPassword}
