@@ -53,7 +53,7 @@ const LoginScreen = () => {
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
-           autoComplete="on"
+           autoComplete="off"
             type="password"
             placeholder="Enter Password"
             value={password}
