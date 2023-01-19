@@ -23,8 +23,8 @@
 
 # Download & Setup Instructions
 
-* 1 - Clone project: git clone https://github.com/divanov11/proshop_django/
-* 2 - cd proshop_django
+* 1 - Clone project: git clone https://github.com/lidorbali/zvika-Force.git
+* 2 - cd backend 
 * 3 - Create virtual environment: virtualenv myenv
 * 4 - myenv\scripts\activate
 * 5 - pip install -r requirements.txt
@@ -32,4 +32,5 @@
 
 # Install react modules
 * 1 - cd frontend
-* 2 - npm install
+* 2 - npm install / npm i
+* 3 - mpm start
