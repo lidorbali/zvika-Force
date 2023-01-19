@@ -6,7 +6,7 @@
 
 
 
-![DEMO](../master/static/images/)
+![DEMO](../main/backend/static/images/)
 
 
 # Features
