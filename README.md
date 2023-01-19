@@ -6,7 +6,7 @@
 
 
 
-![DEMO](../main/backend/static/img/Arais.jpg)
+![DEMO](../main/backend/static/img/)
 
 
 # Features
