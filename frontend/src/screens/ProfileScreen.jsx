@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation,Navigate } from "react-router-dom";
 import { Form, Button, Row, Col,Table } from "react-bootstrap";
 import {  LinkContainer} from 'react-router-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
@@ -165,7 +164,7 @@ const ProfileScreen = () => {
                     **example: 2023-01-11T21:08:52.647840Z => 2023-01-11	**  */}
                     <td>{order.createdAt.substring(0,10)}</td>
                     <td>₪{order.totalPrice}</td>
-                    <td>{order.isPaid ? order.paidAt.substring(0,10) : (
+                    <td >{order.isPaid ? order.paidAt.substring(0,10) : (
                       <i className="fas fa-times" style={{color:'red'}} ></i>
                     )}</td>
                     <td>
@@ -174,12 +173,18 @@ const ProfileScreen = () => {
 
                       </LinkContainer>
                     </td>
+                    <td >{order.isDeliverd ? order.deliverdAt.substring(0,10) : (
+                      <i className="fas fa-times" style={{color:'red'}} ></i>
+                    )}</td>
                   </tr>
 
                 ))}
               </tbody>
               
-          
+
+
+
+                        
 
 
         </Table>
