@@ -2,11 +2,19 @@
 # for Butcher shop With Django + React
 
 
+<<<<<<< HEAD
 This project made from collaboration wih Lidor Baliti and Aleksey   Kachmarek as final project.
 
 
 
 <img src="backend/static/readme/main screen.jpeg" width="256"/>
+=======
+
+
+
+
+![DEMO](../main/backend/static/img/)
+>>>>>>> f62b1d3047c0c5d28a1af4c8a5bfd1c4ff7f458e
 
 
 # Features
