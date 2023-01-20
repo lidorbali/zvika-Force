@@ -14,7 +14,6 @@ This project made from collaboration wih Lidor Baliti and Aleksey   Kachmarek as
 
 
 ![DEMO](../main/backend/static/img/)
->>>>>>> f62b1d3047c0c5d28a1af4c8a5bfd1c4ff7f458e
 
 
 # Features
