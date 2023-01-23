@@ -2,8 +2,7 @@
 # for Butcher shop With Django + React
 
 
-<<<<<<< HEAD
-This project made from collaboration wih Lidor Baliti and Aleksey   Kachmarek as final project.
+
 
 
 
