@@ -11,6 +11,7 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import UserListScreen from "./screens/UserListScreen";
 
 
 
@@ -33,6 +34,9 @@ function App() {
             <Route path="/order/:id" exact element={<OrderScreen  />} />
             <Route path="/payment" exact element={<PaymentScreen  />} />
             <Route path='/cart/:id?' element={<CartScreen />} />
+
+            <Route path="/admin/userlist" exact element={<UserListScreen  />} />
+
           </Routes>
         </Container>
       </main>
